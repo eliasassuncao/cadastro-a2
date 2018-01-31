@@ -11,9 +11,19 @@ var FilterClient = /** @class */ (function () {
     function FilterClient() {
     }
     FilterClient.prototype.transform = function (clients, searching) {
-        var filtro = searching ? searching.toLocaleLowerCase() : '';
-        return filtro ? clients.filter(function (client) { return client.nome.toLocaleLowerCase().indexOf(filtro) != -1; })
-            : clients;
+        //  return clients.filter( client => client.nome.toLowerCase().includes(searching));
+        return clients.filter(function (client) {
+            var valueReturn = false;
+            if (client.nome.toLowerCase().includes(searching.toLowerCase())) {
+                valueReturn = true;
+                return valueReturn;
+            }
+            if (client._id.toString().toLowerCase().includes(searching.toLowerCase())) {
+                valueReturn = true;
+                return valueReturn;
+            }
+            return valueReturn;
+        });
     };
     FilterClient = __decorate([
         core_1.Pipe({

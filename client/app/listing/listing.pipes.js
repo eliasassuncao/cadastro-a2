@@ -7,17 +7,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var client_component_1 = require("./client.component");
-var ClientModule = /** @class */ (function () {
-    function ClientModule() {
+var FilterClient = /** @class */ (function () {
+    function FilterClient() {
     }
-    ClientModule = __decorate([
-        core_1.NgModule({
-            declarations: [client_component_1.ClientComponent],
-            exports: [client_component_1.ClientComponent]
+    FilterClient.prototype.transform = function (clients, searching) {
+        var filtro = searching ? searching.toLocaleLowerCase() : '';
+        return filtro ? clients.filter(function (client) { return client.nome.toLocaleLowerCase().indexOf(filtro) != -1; }) : clients;
+    };
+    FilterClient = __decorate([
+        core_1.Pipe({
+            name: 'filterClient'
         })
-    ], ClientModule);
-    return ClientModule;
+    ], FilterClient);
+    return FilterClient;
 }());
-exports.ClientModule = ClientModule;
-//# sourceMappingURL=client.module.js.map
+exports.FilterClient = FilterClient;
+//# sourceMappingURL=listing.pipes.js.map

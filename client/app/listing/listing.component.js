@@ -19,14 +19,13 @@ var ListingComponent = /** @class */ (function () {
             .map(function (res) { return res.json(); })
             .subscribe(function (clients) {
             _this.clients = clients;
-            console.log(_this.clients);
         }, function (error) { return console.log(error); });
     }
     ListingComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'listing',
-            templateUrl: './listing.component.html'
+            templateUrl: './listing.component.html',
         }),
         __metadata("design:paramtypes", [http_1.Http])
     ], ListingComponent);

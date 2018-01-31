@@ -12,15 +12,15 @@ var app_component_1 = require("./app.component");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var register_component_1 = require("./register/register.component");
-var listing_component_1 = require("./listing/listing.component");
 var app_routes_1 = require("./app.routes");
+var listing_module_1 = require("./listing/listing.module");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, app_routes_1.routing],
-            declarations: [app_component_1.AppComponent, register_component_1.RegisterComponent, listing_component_1.ListingComponent],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, app_routes_1.routing, listing_module_1.ListingModule],
+            declarations: [app_component_1.AppComponent, register_component_1.RegisterComponent, register_component_1.RegisterComponent],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

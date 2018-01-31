@@ -7,17 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ClientComponent = /** @class */ (function () {
-    function ClientComponent() {
+var listing_component_1 = require("./listing.component");
+var listing_pipes_1 = require("./listing.pipes");
+var common_1 = require("@angular/common");
+var ListingModule = /** @class */ (function () {
+    function ListingModule() {
     }
-    ClientComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'clients',
-            templateUrl: './client.component.html'
+    ListingModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule],
+            declarations: [listing_component_1.ListingComponent, listing_pipes_1.FilterClient],
+            exports: [listing_component_1.ListingComponent]
         })
-    ], ClientComponent);
-    return ClientComponent;
+    ], ListingModule);
+    return ListingModule;
 }());
-exports.ClientComponent = ClientComponent;
-//# sourceMappingURL=client.component.js.map
+exports.ListingModule = ListingModule;
+//# sourceMappingURL=listing.module.js.map

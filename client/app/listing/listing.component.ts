@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Component({
     moduleId: module.id,
     selector: 'listing',
-    templateUrl: './listing.component.html'
+    templateUrl: './listing.component.html',
 })
 
 export class ListingComponent{
@@ -17,7 +17,6 @@ export class ListingComponent{
             .map(res => res.json())
             .subscribe( clients => {
                 this.clients = clients;
-                console.log(this.clients);
         }, error => console.log(error));
     }
 }

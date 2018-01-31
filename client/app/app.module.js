@@ -19,7 +19,11 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, app_routes_1.routing, listing_module_1.ListingModule],
+            imports: [platform_browser_1.BrowserModule,
+                http_1.HttpModule,
+                app_routes_1.routing,
+                listing_module_1.ListingModule
+            ],
             declarations: [app_component_1.AppComponent, register_component_1.RegisterComponent, register_component_1.RegisterComponent],
             bootstrap: [app_component_1.AppComponent]
         })

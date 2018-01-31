@@ -8,7 +8,11 @@ import { routing } from './app.routes';
 import { ListingModule } from './listing/listing.module';
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule, routing, ListingModule],
+  imports: [ BrowserModule,
+             HttpModule,
+             routing,
+             ListingModule
+           ],
   declarations: [ AppComponent, RegisterComponent, RegisterComponent],
   bootstrap:    [ AppComponent ]
 })

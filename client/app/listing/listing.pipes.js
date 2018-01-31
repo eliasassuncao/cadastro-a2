@@ -12,7 +12,8 @@ var FilterClient = /** @class */ (function () {
     }
     FilterClient.prototype.transform = function (clients, searching) {
         var filtro = searching ? searching.toLocaleLowerCase() : '';
-        return filtro ? clients.filter(function (client) { return client.nome.toLocaleLowerCase().indexOf(filtro) != -1; }) : clients;
+        return filtro ? clients.filter(function (client) { return client.nome.toLocaleLowerCase().indexOf(filtro) != -1; })
+            : clients;
     };
     FilterClient = __decorate([
         core_1.Pipe({

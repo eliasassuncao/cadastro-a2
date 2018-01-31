@@ -17,6 +17,7 @@ export class ListingComponent{
             .map(res => res.json())
             .subscribe( clients => {
                 this.clients = clients;
+                console.log(clients);
         }, error => console.log(error));
     }
 }

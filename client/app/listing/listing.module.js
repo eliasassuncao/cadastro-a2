@@ -22,6 +22,5 @@ var ListingModule = /** @class */ (function () {
     ], ListingModule);
     return ListingModule;
 }());
-
 exports.ListingModule = ListingModule;
 //# sourceMappingURL=listing.module.js.map

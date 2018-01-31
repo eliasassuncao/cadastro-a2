@@ -19,6 +19,7 @@ var ListingComponent = /** @class */ (function () {
             .map(function (res) { return res.json(); })
             .subscribe(function (clients) {
             _this.clients = clients;
+            console.log(clients);
         }, function (error) { return console.log(error); });
     }
     ListingComponent = __decorate([
@@ -31,6 +32,5 @@ var ListingComponent = /** @class */ (function () {
     ], ListingComponent);
     return ListingComponent;
 }());
-
 exports.ListingComponent = ListingComponent;
 //# sourceMappingURL=listing.component.js.map

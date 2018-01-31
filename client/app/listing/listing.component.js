@@ -31,5 +31,6 @@ var ListingComponent = /** @class */ (function () {
     ], ListingComponent);
     return ListingComponent;
 }());
+
 exports.ListingComponent = ListingComponent;
 //# sourceMappingURL=listing.component.js.map

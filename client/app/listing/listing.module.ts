@@ -8,4 +8,4 @@ import  { CommonModule } from '@angular/common';
     declarations: [ ListingComponent, FilterClient ],
     exports: [ ListingComponent ]
 })
-export class ListingModule{}
+export class ListingModule{ }

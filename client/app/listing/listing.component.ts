@@ -6,6 +6,7 @@ import { Http } from '@angular/http';
     selector: 'listing',
     templateUrl: './listing.component.html',
 })
+
 export class ListingComponent{
 
     clients: Object[] = [];

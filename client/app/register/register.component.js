@@ -23,6 +23,7 @@ var RegisterComponent = /** @class */ (function () {
         this.http = http;
     }
     RegisterComponent.prototype.register = function (event) {
+        var _this = this;
         event.preventDefault();
         console.log(this.client);
         var headers = new http_1.Headers();
@@ -30,7 +31,7 @@ var RegisterComponent = /** @class */ (function () {
         this.http
             .post('/v1/data', JSON.stringify(this.client), { headers: headers })
             .subscribe(function () {
-            //this.client = new Object;
+            _this.client = new Object;
             console.log('Foto salva com sucesso');
         });
     };

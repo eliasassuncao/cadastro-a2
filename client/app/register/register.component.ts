@@ -32,7 +32,7 @@ export class RegisterComponent {
         this.http
             .post('/v1/data', JSON.stringify(this.client) ,{ headers: headers} )
             .subscribe( () => {
-                //this.client = new Object;
+                this.client = new Object;
                 console.log('Foto salva com sucesso');
             });
     } 

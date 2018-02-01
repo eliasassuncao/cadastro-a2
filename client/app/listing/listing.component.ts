@@ -13,7 +13,7 @@ export class ListingComponent{
 
     constructor(http: Http){
 
-        http.get('/v1/cadastrados')
+        http.get('/v1/data')
             .map(res => res.json())
             .subscribe( clients => {
                 this.clients = clients;

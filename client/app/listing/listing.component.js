@@ -15,7 +15,7 @@ var ListingComponent = /** @class */ (function () {
     function ListingComponent(http) {
         var _this = this;
         this.clients = [];
-        http.get('/v1/cadastrados')
+        http.get('/v1/data')
             .map(function (res) { return res.json(); })
             .subscribe(function (clients) {
             _this.clients = clients;

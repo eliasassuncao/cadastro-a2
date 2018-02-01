@@ -1,23 +1,23 @@
 var mongoose = require('mongoose');
 
 var schema = mongoose.Schema({
-    Nome: {
+    nome: {
         type: String,
         required: true
     },
-    Genero: {
+    genero: {
         type: String,
         required: true
     },
-    CPF: {
+    cpf: {
         type: String,
         required: false
     },
-    DDN: {
+    ddn: {
         type: String,
         required: true
     },
-    Telefone: {
+    telefone: {
         type: String,
         required: true
     }

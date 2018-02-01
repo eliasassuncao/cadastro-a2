@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { ListingComponent} from './listing/listing.component';
+import { ModuleWithProviders } from '@angular/core';
 
 const appRoutes: Routes = [
 
@@ -9,4 +10,4 @@ const appRoutes: Routes = [
     { path: '**', redirectTo: ''}  
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

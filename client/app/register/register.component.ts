@@ -22,7 +22,6 @@ export class RegisterComponent {
         this.http = http;
     }
 
-    /*
     register(event) {
         event.preventDefault();
         console.log(this.client);
@@ -33,16 +32,8 @@ export class RegisterComponent {
         this.http
             .post('/v1/data', JSON.stringify(this.client) ,{ headers: headers} )
             .subscribe( () => {
-                this.client = new Object;
+                //this.client = new Object;
                 console.log('Foto salva com sucesso');
             });
-    } */
-
-    register(event) {
-        event.preventDefault();
-        console.log(this.client);
-    }
-
-
-
+    } 
 }

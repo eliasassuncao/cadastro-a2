@@ -22,24 +22,17 @@ var RegisterComponent = /** @class */ (function () {
         };
         this.http = http;
     }
-    /*
-    register(event) {
-        event.preventDefault();
-        console.log(this.client);
-
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        this.http
-            .post('/v1/data', JSON.stringify(this.client) ,{ headers: headers} )
-            .subscribe( () => {
-                this.client = new Object;
-                console.log('Foto salva com sucesso');
-            });
-    } */
     RegisterComponent.prototype.register = function (event) {
         event.preventDefault();
         console.log(this.client);
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http
+            .post('/v1/data', JSON.stringify(this.client), { headers: headers })
+            .subscribe(function () {
+            //this.client = new Object;
+            console.log('Foto salva com sucesso');
+        });
     };
     RegisterComponent = __decorate([
         core_1.Component({

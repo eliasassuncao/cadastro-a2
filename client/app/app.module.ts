@@ -6,12 +6,14 @@ import 'rxjs/add/operator/map';
 import { RegisterComponent } from './register/register.component';
 import { routing } from './app.routes';
 import { ListingModule } from './listing/listing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [ BrowserModule,
              HttpModule,
              routing,
-             ListingModule
+             ListingModule,
+             FormsModule
            ],
   declarations: [ AppComponent, RegisterComponent, RegisterComponent],
   bootstrap:    [ AppComponent ]

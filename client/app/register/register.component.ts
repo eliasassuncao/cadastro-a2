@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ListingComponent } from '../listing/listing.component';
 import { Http, Headers } from '@angular/http';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component ({
     moduleId: module.id,
@@ -17,9 +18,20 @@ export class RegisterComponent {
         telefone: ''
     };
     http: Http;
+    myForm: FormGroup;
 
-    constructor(http: Http){
+    constructor(http: Http, fb: FormBuilder){
         this.http = http;
+
+        this.myForm = fb.group({
+            nome: ['', Validators.compose(
+                [Validators.required, Validators.minLength(3), Validators.maxLength(35)]
+            )],
+            genero: ['', ],
+            cpf: ['', ],
+            ddn: ['', ],
+            telefone: ['', ]
+        });
     }
 
     register(event) {

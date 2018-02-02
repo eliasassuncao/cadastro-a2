@@ -11,8 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var forms_1 = require("@angular/forms");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(http) {
+    function RegisterComponent(http, fb) {
         this.client = {
             nome: '',
             genero: '',
@@ -21,6 +22,13 @@ var RegisterComponent = /** @class */ (function () {
             telefone: ''
         };
         this.http = http;
+        this.myForm = fb.group({
+            nome: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(3), forms_1.Validators.maxLength(35)])],
+            genero: ['',],
+            cpf: ['',],
+            ddn: ['',],
+            telefone: ['',]
+        });
     }
     RegisterComponent.prototype.register = function (event) {
         var _this = this;
@@ -41,7 +49,7 @@ var RegisterComponent = /** @class */ (function () {
             selector: 'register',
             templateUrl: './register.component.html'
         }),
-        __metadata("design:paramtypes", [http_1.Http])
+        __metadata("design:paramtypes", [http_1.Http, forms_1.FormBuilder])
     ], RegisterComponent);
     return RegisterComponent;
 }());

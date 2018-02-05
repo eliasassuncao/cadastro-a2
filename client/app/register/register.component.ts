@@ -27,10 +27,18 @@ export class RegisterComponent {
             nome: ['', Validators.compose(
                 [Validators.required, Validators.minLength(3), Validators.maxLength(35)]
             )],
-            genero: ['', ],
-            cpf: ['', ],
-            ddn: ['', ],
-            telefone: ['', ]
+            genero: ['', Validators.compose(
+                [Validators.required, Validators.minLength(8), Validators.maxLength(9)]
+            ) ],
+            cpf: ['', Validators.compose(
+                [Validators.required, Validators.minLength(14), Validators.maxLength(14)]
+            )],
+            ddn: ['', Validators.compose(
+                [Validators.required, Validators.minLength(10), Validators.maxLength(10)]
+            ) ],
+            telefone: ['', Validators.compose(
+                [Validators.required, Validators.minLength(14), Validators.maxLength(14)]
+            )]
         });
     }
 

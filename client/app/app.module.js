@@ -25,7 +25,7 @@ var AppModule = /** @class */ (function () {
                 app_routes_1.routing,
                 listing_module_1.ListingModule,
                 forms_1.FormsModule,
-                forms_1.ReactiveFormsModule
+                forms_1.ReactiveFormsModule,
             ],
             declarations: [app_component_1.AppComponent, register_component_1.RegisterComponent, register_component_1.RegisterComponent],
             bootstrap: [app_component_1.AppComponent]

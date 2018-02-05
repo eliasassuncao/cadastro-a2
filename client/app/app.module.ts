@@ -14,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
              routing,
              ListingModule,
              FormsModule,
-             ReactiveFormsModule
+             ReactiveFormsModule,
            ],
   declarations: [ AppComponent, RegisterComponent, RegisterComponent],
   bootstrap:    [ AppComponent ]

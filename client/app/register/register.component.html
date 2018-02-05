@@ -7,7 +7,7 @@
                 
                 <div *ngIf="myForm.controls.nome.invalid"> 
                     <span *ngIf="myForm.controls.nome.errors.required" class="form-control alert-danger">
-                        Nome Obrigatório.
+                        Nome obrigatório.
                     </span>
     
                     <span *ngIf="myForm.controls.nome.errors.maxlength" class="form-control alert-danger">
@@ -20,22 +20,79 @@
                 </div>
 
             </div>
+
             <div class="form-group">
                 <label>Genero</label>
-                <input name="genero" [(ngModel)]="client.genero" class="form-control" autocomplete="off" formControlName="genero">
+                <input name="genero" [(ngModel)]="client.genero" class="form-control" autocomplete="off" formControlName="genero" placeholder="Masculino/Feminino">
+
+                <div *ngIf="myForm.controls.genero.invalid"> 
+                    <span *ngIf="myForm.controls.genero.errors.required" class="form-control alert-danger">
+                        Genero obrigatório.
+                    </span>
+    
+                    <span *ngIf="myForm.controls.genero.errors.maxlength" class="form-control alert-danger">
+                        Genero incorreto.
+                    </span>
+
+                    <span *ngIf="myForm.controls.genero.errors.minlength" class="form-control alert-danger">
+                        Genero incorreto. 
+                    </span>
+                </div>              
             </div>
-            
+
             <div class="form-group">
                 <label>CPF</label>
-                <input name="cpf" [(ngModel)]="client.cpf"class="form-control" autocomplete="off" formControlName="cpf">
+                <input name="cpf" [(ngModel)]="client.cpf"class="form-control" autocomplete="off" formControlName="cpf" placeholder="999-999-999/99">
+
+                <div *ngIf="myForm.controls.cpf.invalid"> 
+                    <span *ngIf="myForm.controls.cpf.errors.required" class="form-control alert-danger">
+                        CPF obrigatório.
+                    </span>
+    
+                    <span *ngIf="myForm.controls.cpf.errors.maxlength" class="form-control alert-danger">
+                        CPF incorreto.
+                    </span>
+
+                    <span *ngIf="myForm.controls.cpf.errors.minlength" class="form-control alert-danger">
+                        CPF incorreto. 
+                    </span>
+                </div> 
             </div>
             <div class="form-group">
                 <label>Data de Nascimento</label>
-                <input name="ddn" [(ngModel)]="client.ddn" class="form-control" autocomplete="off" formControlName="ddn">
+                <input name="ddn" [(ngModel)]="client.ddn" class="form-control" autocomplete="off" formControlName="ddn" placeholder="99/99/9999">
+    
+                <div *ngIf="myForm.controls.ddn.invalid"> 
+                    <span *ngIf="myForm.controls.ddn.errors.required" class="form-control alert-danger">
+                        Data de nascimento obrigatório.
+                    </span>
+    
+                    <span *ngIf="myForm.controls.ddn.errors.maxlength" class="form-control alert-danger">
+                        Data de nascimento incorreta.
+                    </span>
+
+                    <span *ngIf="myForm.controls.ddn.errors.minlength" class="form-control alert-danger">
+                        Data de nascimento incorreta. 
+                    </span>
+                </div> 
             </div>
             <div class="form-group">
                 <label>Telefone</label>
-                <input name="telefone" [(ngModel)]="client.telefone" class="form-control" autocomplete="off" formControlName="telefone">
+                <input name="telefone" [(ngModel)]="client.telefone" class="form-control" autocomplete="off" formControlName="telefone" placeholder="(99)99999-9999">
+
+                <div *ngIf="myForm.controls.telefone.invalid"> 
+                    <span *ngIf="myForm.controls.telefone.errors.required" class="form-control alert-danger">
+                        Telefone obrigatório.
+                    </span>
+    
+                    <span *ngIf="myForm.controls.telefone.errors.maxlength" class="form-control alert-danger">
+                        Telefone incorreto.
+                    </span>
+
+                    <span *ngIf="myForm.controls.telefone.errors.minlength" class="form-control alert-danger">
+                        Teleonfe incorreto. 
+                    </span>
+                </div> 
             </div>
 
             <button type="submit" class="btn btn-default" [disabled]="myForm.invalid">Salvar</button>

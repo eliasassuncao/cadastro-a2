@@ -20,12 +20,3 @@ export class ListingComponent{
     }
 }
 
-/*     constructor(http: Http){
-
-        http.get('/v1/data')
-            .map(res => res.json())
-            .subscribe( clients => {
-                this.clients = clients;
-                //console.log(clients);
-        }, error => console.log(error));
-    } */

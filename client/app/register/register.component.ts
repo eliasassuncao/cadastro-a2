@@ -56,18 +56,3 @@ export class RegisterComponent {
 
     }  
 }
-
-/*     register(event) {
-        event.preventDefault();
-        console.log(this.client);
-
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        this.http
-            .post('/v1/data', JSON.stringify(this.client) ,{ headers: headers} )
-            .subscribe( () => {
-                this.client = new Object;
-                console.log('Foto salva com sucesso');
-            });
-    } */

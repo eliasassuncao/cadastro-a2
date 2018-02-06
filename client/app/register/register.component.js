@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
+var clients_service_1 = require("../services/clients.service");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(http, fb) {
+    function RegisterComponent(service, fb) {
         this.client = {
             nome: '',
             genero: '',
@@ -21,7 +21,7 @@ var RegisterComponent = /** @class */ (function () {
             ddn: '',
             telefone: ''
         };
-        this.http = http;
+        this.service = service;
         this.myForm = fb.group({
             nome: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(3), forms_1.Validators.maxLength(35)])],
             genero: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(8), forms_1.Validators.maxLength(9)])],
@@ -34,14 +34,12 @@ var RegisterComponent = /** @class */ (function () {
         var _this = this;
         event.preventDefault();
         console.log(this.client);
-        var headers = new http_1.Headers();
-        headers.append('Content-Type', 'application/json');
-        this.http
-            .post('/v1/data', JSON.stringify(this.client), { headers: headers })
+        this.service
+            .registerService(this.client)
             .subscribe(function () {
-            _this.client = new Object;
-            console.log('Foto salva com sucesso');
-        });
+            console.log("Cliente cadastrado com sucesso");
+            _this.client = new Object();
+        }, function (error) { return console.log(error); });
     };
     RegisterComponent = __decorate([
         core_1.Component({
@@ -49,9 +47,23 @@ var RegisterComponent = /** @class */ (function () {
             selector: 'register',
             templateUrl: './register.component.html'
         }),
-        __metadata("design:paramtypes", [http_1.Http, forms_1.FormBuilder])
+        __metadata("design:paramtypes", [clients_service_1.ClientsService, forms_1.FormBuilder])
     ], RegisterComponent);
     return RegisterComponent;
 }());
 exports.RegisterComponent = RegisterComponent;
+/*     register(event) {
+        event.preventDefault();
+        console.log(this.client);
+
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        this.http
+            .post('/v1/data', JSON.stringify(this.client) ,{ headers: headers} )
+            .subscribe( () => {
+                this.client = new Object;
+                console.log('Foto salva com sucesso');
+            });
+    } */ 
 //# sourceMappingURL=register.component.js.map

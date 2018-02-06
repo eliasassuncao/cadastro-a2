@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var listing_component_1 = require("./listing.component");
 var listing_pipes_1 = require("./listing.pipes");
 var common_1 = require("@angular/common");
+var clients_service_1 = require("../services/clients.service");
 var ListingModule = /** @class */ (function () {
     function ListingModule() {
     }
@@ -17,7 +18,8 @@ var ListingModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [common_1.CommonModule],
             declarations: [listing_component_1.ListingComponent, listing_pipes_1.FilterClient],
-            exports: [listing_component_1.ListingComponent]
+            exports: [listing_component_1.ListingComponent],
+            providers: [clients_service_1.ClientsService]
         })
     ], ListingModule);
     return ListingModule;

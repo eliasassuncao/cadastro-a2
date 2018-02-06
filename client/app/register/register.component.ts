@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ListingComponent } from '../listing/listing.component';
-import { Http, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ClientsService } from '../services/clients.service';
 
 @Component ({
     moduleId: module.id,
@@ -19,9 +19,10 @@ export class RegisterComponent {
     };
     http: Http;
     myForm: FormGroup;
+    service: ClientsService;
 
-    constructor(http: Http, fb: FormBuilder){
-        this.http = http;
+    constructor(service: ClientsService, fb: FormBuilder){
+        this.service = service;
 
         this.myForm = fb.group({
             nome: ['', Validators.compose(
@@ -41,8 +42,22 @@ export class RegisterComponent {
             )]
         });
     }
-
+     
     register(event) {
+        event.preventDefault();
+        console.log(this.client);
+
+        this.service
+            .registerService(this.client)
+            .subscribe(() => {
+                console.log("Cliente cadastrado com sucesso");
+                this.client = new Object();
+            }, error => console.log(error));
+
+    }  
+}
+
+/*     register(event) {
         event.preventDefault();
         console.log(this.client);
 
@@ -55,5 +70,4 @@ export class RegisterComponent {
                 this.client = new Object;
                 console.log('Foto salva com sucesso');
             });
-    } 
-}
+    } */

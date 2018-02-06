@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component } from '@angular/core';
+import { ClientsService } from '../services/clients.service';
 
 @Component({
     moduleId: module.id,
@@ -11,7 +11,16 @@ export class ListingComponent{
 
     clients: Object[] = [];
 
-    constructor(http: Http){
+    constructor(service: ClientsService){
+        service.list()
+            .subscribe(clients => {
+                this.clients = clients;
+            }, error => console.log(error));
+
+    }
+}
+
+/*     constructor(http: Http){
 
         http.get('/v1/data')
             .map(res => res.json())
@@ -19,5 +28,4 @@ export class ListingComponent{
                 this.clients = clients;
                 //console.log(clients);
         }, error => console.log(error));
-    }
-}
+    } */

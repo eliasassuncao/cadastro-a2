@@ -10,16 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
+var clients_service_1 = require("../services/clients.service");
 var ListingComponent = /** @class */ (function () {
-    function ListingComponent(http) {
+    function ListingComponent(service) {
         var _this = this;
         this.clients = [];
-        http.get('/v1/data')
-            .map(function (res) { return res.json(); })
+        service.list()
             .subscribe(function (clients) {
             _this.clients = clients;
-            //console.log(clients);
         }, function (error) { return console.log(error); });
     }
     ListingComponent = __decorate([
@@ -28,9 +26,18 @@ var ListingComponent = /** @class */ (function () {
             selector: 'listing',
             templateUrl: './listing.component.html',
         }),
-        __metadata("design:paramtypes", [http_1.Http])
+        __metadata("design:paramtypes", [clients_service_1.ClientsService])
     ], ListingComponent);
     return ListingComponent;
 }());
 exports.ListingComponent = ListingComponent;
+/*     constructor(http: Http){
+
+        http.get('/v1/data')
+            .map(res => res.json())
+            .subscribe( clients => {
+                this.clients = clients;
+                //console.log(clients);
+        }, error => console.log(error));
+    } */ 
 //# sourceMappingURL=listing.component.js.map

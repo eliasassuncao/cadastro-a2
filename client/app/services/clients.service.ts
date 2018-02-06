@@ -20,10 +20,20 @@ export class ClientsService {
     }
 
     registerService(client){
-        return this.http.post(this.url, JSON.stringify(client), {headers: this.headers});
+
+        if(client._id){
+            return this.http.put(this.url + '/' + client._id, JSON.stringify(client), {headers: this.headers});
+        }else {
+            return this.http.post(this.url, JSON.stringify(client), {headers: this.headers});
+        }
+
     }
 
     remove(client) {
         return this.http.delete(this.url + '/' + client._id);
+    }
+
+    searchForId(id: string) {
+        return this.http.get(this.url + '/' + id).map(res => res.json());
     }
 }

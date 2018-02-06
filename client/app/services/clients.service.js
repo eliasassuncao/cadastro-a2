@@ -23,10 +23,18 @@ var ClientsService = /** @class */ (function () {
             .map(function (res) { return res.json(); });
     };
     ClientsService.prototype.registerService = function (client) {
-        return this.http.post(this.url, JSON.stringify(client), { headers: this.headers });
+        if (client._id) {
+            return this.http.put(this.url + '/' + client._id, JSON.stringify(client), { headers: this.headers });
+        }
+        else {
+            return this.http.post(this.url, JSON.stringify(client), { headers: this.headers });
+        }
     };
     ClientsService.prototype.remove = function (client) {
         return this.http.delete(this.url + '/' + client._id);
+    };
+    ClientsService.prototype.searchForId = function (id) {
+        return this.http.get(this.url + '/' + id).map(function (res) { return res.json(); });
     };
     ClientsService = __decorate([
         core_1.Injectable(),

@@ -6,6 +6,7 @@ import { ModuleWithProviders } from '@angular/core';
 const appRoutes: Routes = [
 
     { path: '', component: ListingComponent },
+    { path: 'cadastro/:id', component: RegisterComponent },
     { path: 'cadastro', component: RegisterComponent },
     { path: '**', redirectTo: ''}  
 ];

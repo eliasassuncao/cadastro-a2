@@ -11,12 +11,13 @@ var listing_component_1 = require("./listing.component");
 var listing_pipes_1 = require("./listing.pipes");
 var common_1 = require("@angular/common");
 var clients_service_1 = require("../services/clients.service");
+var app_routes_1 = require("../app.routes");
 var ListingModule = /** @class */ (function () {
     function ListingModule() {
     }
     ListingModule = __decorate([
         core_1.NgModule({
-            imports: [common_1.CommonModule],
+            imports: [common_1.CommonModule, app_routes_1.routing],
             declarations: [listing_component_1.ListingComponent, listing_pipes_1.FilterClient],
             exports: [listing_component_1.ListingComponent],
             providers: [clients_service_1.ClientsService]

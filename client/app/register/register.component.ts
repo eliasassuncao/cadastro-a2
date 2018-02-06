@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ClientsService } from '../services/clients.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component ({
     moduleId: module.id,
@@ -21,9 +22,23 @@ export class RegisterComponent {
     myForm: FormGroup;
     service: ClientsService;
     message: string = '';
+    route: ActivatedRoute;
 
-    constructor(service: ClientsService, fb: FormBuilder){
+    constructor(service: ClientsService, fb: FormBuilder, route: ActivatedRoute){
+
         this.service = service;
+
+        this.route = route;
+        this.route.params.subscribe(params => {
+            let id = params['id'];
+
+            if(id){
+                this.service
+                .searchForId(id)
+                .subscribe(client => this.client = client, error => console.log(error));
+            }
+            
+        });
 
         this.myForm = fb.group({
             nome: ['', Validators.compose(
@@ -46,16 +61,15 @@ export class RegisterComponent {
      
     register(event) {
         event.preventDefault();
-        console.log(this.client);
 
         this.service
             .registerService(this.client)
             .subscribe(() => {
-                this.message = 'Cliente cadastrado com sucesso';
+                this.message = 'Cliente salvo com sucesso';
                 this.client = new Object();
             }, error => {
                 console.log(error);
-                this.message = 'Não foi possivel cadastrar o cliente'
+                this.message = 'Não foi possivel salvar o cliente'
             });
 
     }  

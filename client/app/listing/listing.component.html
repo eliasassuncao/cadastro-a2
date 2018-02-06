@@ -1,15 +1,14 @@
 <div class="container">
 
   <p *ngIf="message.length" class="alert alert-info">{{message}}</p>
-  
+
   <div class="col-md-4">
-    <input #searchClient (keyup)="0" type="text" class="form-control" placeholder="Procurar cliente pelo seu ID ou NOME">
+    <input #searchClient (keyup)="0" type="text" class="form-control" placeholder="Procurar cliente pelo seu CPF ou NOME">
   </div>
   
   <table class="table table-bordered table-inverse">
     <thead>
       <tr>
-        <th>Id</th>
         <th>Nome</th>
         <th>Genero</th>
         <th>CPF</th>
@@ -20,13 +19,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let client of clients | filterClient: searchClient.value">
-        <td>{{client._id}}</td>
         <td>{{client.nome}}</td>
         <td>{{client.genero}}</td>
         <td>{{client.cpf}}</td>
         <td>{{client.ddn}}</td>
         <td>{{client.telefone}}</td>
-        <button type="button" class="btn btn-danger" style="margin-left:25px; margin-top: 5px" (click)="remove(client)">
+        <a [routerLink]="['/cadastro', client._id ]" class="btn btn-primary glyphicon glyphicon-edit" style="margin-left:25px; margin-top: 5px"></a>
+        <button type="button" class="btn btn-danger" style="margin-left:15px; margin-top: 5px; margin-right:-40px" (click)="remove(client)">
               <span class="glyphicon glyphicon-trash"></span>
         </button> 
       </tr>

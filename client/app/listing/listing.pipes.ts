@@ -17,7 +17,7 @@ export class FilterClient implements PipeTransform {
                 return valueReturn;
              } 
 
-             if(client._id.toString().toLowerCase().includes(searching.toLowerCase())){
+             if(client.cpf.toString().toLowerCase().includes(searching.toLowerCase())){
                 valueReturn = true;
                 return valueReturn;
              } 

@@ -12,8 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var clients_service_1 = require("../services/clients.service");
+var router_1 = require("@angular/router");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(service, fb) {
+    function RegisterComponent(service, fb, route) {
+        var _this = this;
         this.client = {
             nome: '',
             genero: '',
@@ -23,6 +25,15 @@ var RegisterComponent = /** @class */ (function () {
         };
         this.message = '';
         this.service = service;
+        this.route = route;
+        this.route.params.subscribe(function (params) {
+            var id = params['id'];
+            if (id) {
+                _this.service
+                    .searchForId(id)
+                    .subscribe(function (client) { return _this.client = client; }, function (error) { return console.log(error); });
+            }
+        });
         this.myForm = fb.group({
             nome: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(3), forms_1.Validators.maxLength(35)])],
             genero: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(8), forms_1.Validators.maxLength(9)])],
@@ -34,15 +45,14 @@ var RegisterComponent = /** @class */ (function () {
     RegisterComponent.prototype.register = function (event) {
         var _this = this;
         event.preventDefault();
-        console.log(this.client);
         this.service
             .registerService(this.client)
             .subscribe(function () {
-            _this.message = 'Cliente cadastrado com sucesso';
+            _this.message = 'Cliente salvo com sucesso';
             _this.client = new Object();
         }, function (error) {
             console.log(error);
-            _this.message = 'Não foi possivel cadastrar o cliente';
+            _this.message = 'Não foi possivel salvar o cliente';
         });
     };
     RegisterComponent = __decorate([
@@ -51,7 +61,7 @@ var RegisterComponent = /** @class */ (function () {
             selector: 'register',
             templateUrl: './register.component.html'
         }),
-        __metadata("design:paramtypes", [clients_service_1.ClientsService, forms_1.FormBuilder])
+        __metadata("design:paramtypes", [clients_service_1.ClientsService, forms_1.FormBuilder, router_1.ActivatedRoute])
     ], RegisterComponent);
     return RegisterComponent;
 }());

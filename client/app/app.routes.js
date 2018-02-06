@@ -5,6 +5,7 @@ var register_component_1 = require("./register/register.component");
 var listing_component_1 = require("./listing/listing.component");
 var appRoutes = [
     { path: '', component: listing_component_1.ListingComponent },
+    { path: 'cadastro/:id', component: register_component_1.RegisterComponent },
     { path: 'cadastro', component: register_component_1.RegisterComponent },
     { path: '**', redirectTo: '' }
 ];

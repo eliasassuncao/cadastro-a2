@@ -20,6 +20,7 @@ export class RegisterComponent {
     http: Http;
     myForm: FormGroup;
     service: ClientsService;
+    message: string = '';
 
     constructor(service: ClientsService, fb: FormBuilder){
         this.service = service;
@@ -50,9 +51,12 @@ export class RegisterComponent {
         this.service
             .registerService(this.client)
             .subscribe(() => {
-                console.log("Cliente cadastrado com sucesso");
+                this.message = 'Cliente cadastrado com sucesso';
                 this.client = new Object();
-            }, error => console.log(error));
+            }, error => {
+                console.log(error);
+                this.message = 'Não foi possivel cadastrar o cliente'
+            });
 
     }  
 }

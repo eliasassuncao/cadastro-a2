@@ -21,6 +21,7 @@ var RegisterComponent = /** @class */ (function () {
             ddn: '',
             telefone: ''
         };
+        this.message = '';
         this.service = service;
         this.myForm = fb.group({
             nome: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(3), forms_1.Validators.maxLength(35)])],
@@ -37,9 +38,12 @@ var RegisterComponent = /** @class */ (function () {
         this.service
             .registerService(this.client)
             .subscribe(function () {
-            console.log("Cliente cadastrado com sucesso");
+            _this.message = 'Cliente cadastrado com sucesso';
             _this.client = new Object();
-        }, function (error) { return console.log(error); });
+        }, function (error) {
+            console.log(error);
+            _this.message = 'Não foi possivel cadastrar o cliente';
+        });
     };
     RegisterComponent = __decorate([
         core_1.Component({
@@ -52,18 +56,4 @@ var RegisterComponent = /** @class */ (function () {
     return RegisterComponent;
 }());
 exports.RegisterComponent = RegisterComponent;
-/*     register(event) {
-        event.preventDefault();
-        console.log(this.client);
-
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        this.http
-            .post('/v1/data', JSON.stringify(this.client) ,{ headers: headers} )
-            .subscribe( () => {
-                this.client = new Object;
-                console.log('Foto salva com sucesso');
-            });
-    } */ 
 //# sourceMappingURL=register.component.js.map

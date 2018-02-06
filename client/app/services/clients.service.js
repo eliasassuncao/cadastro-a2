@@ -25,6 +25,9 @@ var ClientsService = /** @class */ (function () {
     ClientsService.prototype.registerService = function (client) {
         return this.http.post(this.url, JSON.stringify(client), { headers: this.headers });
     };
+    ClientsService.prototype.remove = function (client) {
+        return this.http.delete(this.url + '/' + client._id);
+    };
     ClientsService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])

@@ -1,4 +1,7 @@
 <div class="container">
+
+  <p *ngIf="message.length" class="alert alert-info">{{message}}</p>
+  
   <div class="col-md-4">
     <input #searchClient (keyup)="0" type="text" class="form-control" placeholder="Procurar cliente pelo seu ID ou NOME">
   </div>
@@ -12,6 +15,7 @@
         <th>CPF</th>
         <th>Data de nascimento</th>
         <th>Telefone</th> 
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +26,9 @@
         <td>{{client.cpf}}</td>
         <td>{{client.ddn}}</td>
         <td>{{client.telefone}}</td>
+        <button type="button" class="btn btn-danger" style="margin-left:25px; margin-top: 5px" (click)="remove(client)">
+              <span class="glyphicon glyphicon-trash"></span>
+        </button> 
       </tr>
     </tbody>
   </table>

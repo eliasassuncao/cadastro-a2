@@ -15,11 +15,30 @@ var ListingComponent = /** @class */ (function () {
     function ListingComponent(service) {
         var _this = this;
         this.clients = [];
+        this.message = '';
+        this.service = service;
         service.list()
             .subscribe(function (clients) {
             _this.clients = clients;
         }, function (error) { return console.log(error); });
     }
+    ListingComponent.prototype.remove = function (client) {
+        var _this = this;
+        confirm("Deseja remover este cliente?");
+        this.service
+            .remove(client)
+            .subscribe(function () {
+            console.log("Foto removida com sucesso");
+            var newClients = _this.clients.slice(0);
+            var index = newClients.indexOf(client);
+            newClients.splice(index, 1);
+            _this.clients = newClients;
+            _this.message = 'Cliente removido com sucesso';
+        }, function (error) {
+            console.log(error);
+            _this.message = 'Não foi possivel remover a foto';
+        });
+    };
     ListingComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -31,13 +50,4 @@ var ListingComponent = /** @class */ (function () {
     return ListingComponent;
 }());
 exports.ListingComponent = ListingComponent;
-/*     constructor(http: Http){
-
-        http.get('/v1/data')
-            .map(res => res.json())
-            .subscribe( clients => {
-                this.clients = clients;
-                //console.log(clients);
-        }, error => console.log(error));
-    } */ 
 //# sourceMappingURL=listing.component.js.map

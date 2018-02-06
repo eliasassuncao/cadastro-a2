@@ -22,4 +22,8 @@ export class ClientsService {
     registerService(client){
         return this.http.post(this.url, JSON.stringify(client), {headers: this.headers});
     }
+
+    remove(client) {
+        return this.http.delete(this.url + '/' + client._id);
+    }
 }

@@ -1,4 +1,7 @@
 <div class="container">
+
+    <p *ngIf="message.length" class="alert alert-info">{{message}}</p>
+
     <form [formGroup]="myForm" class="row" (submit)="register($event)">
         <div class="col-md-6">
             <div class="form-group">

@@ -39,7 +39,7 @@ export class ListingComponent{
                 },
                 error => {
                     console.log(error);
-                    this.message = 'Não foi possivel remover a foto';
+                    this.message = 'Não foi possivel remover o cliente';
                 }
             );
     }

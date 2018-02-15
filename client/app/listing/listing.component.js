@@ -36,7 +36,7 @@ var ListingComponent = /** @class */ (function () {
             _this.message = 'Cliente removido com sucesso';
         }, function (error) {
             console.log(error);
-            _this.message = 'Não foi possivel remover a foto';
+            _this.message = 'Não foi possivel remover o cliente';
         });
     };
     ListingComponent = __decorate([

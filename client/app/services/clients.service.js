@@ -24,10 +24,12 @@ var ClientsService = /** @class */ (function () {
     };
     ClientsService.prototype.registerService = function (client) {
         if (client._id) {
-            return this.http.put(this.url + '/' + client._id, JSON.stringify(client), { headers: this.headers });
+            return this.http.put(this.url + '/' + client._id, JSON.stringify(client), { headers: this.headers })
+                .map(function () { return new MessageRegister('Cliente alterado com sucesso!', false); });
         }
         else {
-            return this.http.post(this.url, JSON.stringify(client), { headers: this.headers });
+            return this.http.post(this.url, JSON.stringify(client), { headers: this.headers })
+                .map(function () { return new MessageRegister('Cliente salvo com sucesso!', true); });
         }
     };
     ClientsService.prototype.remove = function (client) {
@@ -43,4 +45,28 @@ var ClientsService = /** @class */ (function () {
     return ClientsService;
 }());
 exports.ClientsService = ClientsService;
+var MessageRegister = /** @class */ (function () {
+    function MessageRegister(_message, _include) {
+        this._message = _message;
+        this._include = _include;
+        this._message = _message;
+        this._include = _include;
+    }
+    Object.defineProperty(MessageRegister.prototype, "message", {
+        get: function () {
+            return this._message;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MessageRegister.prototype, "include", {
+        get: function () {
+            return this._include;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return MessageRegister;
+}());
+exports.MessageRegister = MessageRegister;
 //# sourceMappingURL=clients.service.js.map

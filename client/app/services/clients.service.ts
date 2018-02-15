@@ -1,5 +1,6 @@
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ClientsService {
@@ -19,12 +20,14 @@ export class ClientsService {
             .map(res => res.json());
     }
 
-    registerService(client){
+    registerService(client): Observable<MessageRegister> {
 
         if(client._id){
-            return this.http.put(this.url + '/' + client._id, JSON.stringify(client), {headers: this.headers});
+            return this.http.put(this.url + '/' + client._id, JSON.stringify(client), {headers: this.headers})
+            .map(() => new MessageRegister('Cliente alterado com sucesso!', false));
         }else {
-            return this.http.post(this.url, JSON.stringify(client), {headers: this.headers});
+            return this.http.post(this.url, JSON.stringify(client), {headers: this.headers})
+            .map(() => new MessageRegister('Cliente salvo com sucesso!', true));
         }
 
     }
@@ -36,4 +39,20 @@ export class ClientsService {
     searchForId(id: string) {
         return this.http.get(this.url + '/' + id).map(res => res.json());
     }
+}
+
+export class MessageRegister {
+
+    constructor(private _message: string, private _include: boolean) {
+        this._message = _message;
+        this._include = _include;
+    }
+
+    get message(): string {
+        return this._message;
+    }
+
+    get include(): boolean {
+        return this._include;
+    } 
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ClientsService } from '../services/clients.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component ({
     moduleId: module.id,
@@ -23,12 +23,15 @@ export class RegisterComponent {
     service: ClientsService;
     message: string = '';
     route: ActivatedRoute;
+    router: Router;
 
-    constructor(service: ClientsService, fb: FormBuilder, route: ActivatedRoute){
+    constructor(service: ClientsService, fb: FormBuilder, route: ActivatedRoute, router: Router){
 
         this.service = service;
 
         this.route = route;
+        this.router = router;
+
         this.route.params.subscribe(params => {
             let id = params['id'];
 
@@ -64,12 +67,12 @@ export class RegisterComponent {
 
         this.service
             .registerService(this.client)
-            .subscribe(() => {
-                this.message = 'Cliente salvo com sucesso';
+            .subscribe(res => {
+                this.message = res.message;
                 this.client = new Object();
+                if(!res.include) this.router.navigate(['']);
             }, error => {
                 console.log(error);
-                this.message = 'Não foi possivel salvar o cliente'
             });
 
     }  

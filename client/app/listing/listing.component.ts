@@ -24,13 +24,12 @@ export class ListingComponent{
     }
 
     remove(client){
-        confirm("Deseja remover este cliente?");
 
-        this.service
+        if(confirm('Deseja remover este cliente?')){
+            this.service
             .remove(client)
             .subscribe(
                 () => {
-                console.log("Foto removida com sucesso")
                 let newClients = this.clients.slice(0); 
                 let index = newClients.indexOf(client);
                 newClients.splice(index, 1);
@@ -42,6 +41,8 @@ export class ListingComponent{
                     this.message = 'Não foi possivel remover o cliente';
                 }
             );
+        }
+
     }
 }
 

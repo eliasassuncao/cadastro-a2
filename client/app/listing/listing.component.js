@@ -24,20 +24,21 @@ var ListingComponent = /** @class */ (function () {
     }
     ListingComponent.prototype.remove = function (client) {
         var _this = this;
-        confirm("Deseja remover este cliente?");
-        this.service
-            .remove(client)
-            .subscribe(function () {
-            console.log("Foto removida com sucesso");
-            var newClients = _this.clients.slice(0);
-            var index = newClients.indexOf(client);
-            newClients.splice(index, 1);
-            _this.clients = newClients;
-            _this.message = 'Cliente removido com sucesso';
-        }, function (error) {
-            console.log(error);
-            _this.message = 'Não foi possivel remover o cliente';
-        });
+        if (confirm('Deseja remover este cliente?')) {
+            this.service
+                .remove(client)
+                .subscribe(function () {
+                console.log("Foto removida com sucesso");
+                var newClients = _this.clients.slice(0);
+                var index = newClients.indexOf(client);
+                newClients.splice(index, 1);
+                _this.clients = newClients;
+                _this.message = 'Cliente removido com sucesso';
+            }, function (error) {
+                console.log(error);
+                _this.message = 'Não foi possivel remover o cliente';
+            });
+        }
     };
     ListingComponent = __decorate([
         core_1.Component({

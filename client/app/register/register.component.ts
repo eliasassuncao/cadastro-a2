@@ -51,7 +51,7 @@ export class RegisterComponent {
                 [Validators.required, Validators.minLength(8), Validators.maxLength(9)]
             ) ],
             cpf: ['', Validators.compose(
-                [Validators.required, Validators.minLength(14), Validators.maxLength(14)]
+                [Validators.required, Validators.minLength(11), Validators.maxLength(11)]
             )],
             ddn: ['', Validators.compose(
                 [Validators.required, Validators.minLength(10), Validators.maxLength(10)]

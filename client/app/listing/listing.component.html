@@ -21,11 +21,11 @@
       <tr #trClient *ngFor="let client of clients | filterClient: searchClient.value">
         <td>{{client.nome}}</td>
         <td>{{client.genero}}</td>
-        <td>{{client.cpf}}</td>
+        <td>{{client.cpf | cpfMask}}</td>
         <td>{{client.ddn}}</td>
         <td>{{client.telefone}}</td>
-        <a [routerLink]="['/cadastro', client._id ]" class="btn btn-primary glyphicon glyphicon-edit" style="margin-left:25px; margin-top: 5px"></a>
-        <button type="button" class="btn btn-danger" style="margin-left:15px; margin-top: 5px; margin-right:-40px" (click)="remove(client, trClient)">
+        <a [routerLink]="['/cadastro', client._id ]" class="btn btn-primary glyphicon glyphicon-edit" style="margin-left:25px; margin-top: 5px; margin-bottom: 10px;"></a>
+        <button type="button" class="btn btn-danger" style="margin-left:15px; margin-top: 5px; margin-right:-40px; margin-bottom: 10px" (click)="remove(client, trClient)">
               <span class="glyphicon glyphicon-trash"></span>
         </button> 
       </tr>

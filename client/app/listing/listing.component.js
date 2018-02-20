@@ -22,22 +22,24 @@ var ListingComponent = /** @class */ (function () {
             _this.clients = clients;
         }, function (error) { return console.log(error); });
     }
-    ListingComponent.prototype.remove = function (client) {
+    ListingComponent.prototype.remove = function (client, trClient) {
         var _this = this;
         if (confirm('Deseja remover este cliente?')) {
-            this.service
-                .remove(client)
-                .subscribe(function () {
-                console.log("Foto removida com sucesso");
-                var newClients = _this.clients.slice(0);
-                var index = newClients.indexOf(client);
-                newClients.splice(index, 1);
-                _this.clients = newClients;
-                _this.message = 'Cliente removido com sucesso';
-            }, function (error) {
-                console.log(error);
-                _this.message = 'Não foi possivel remover o cliente';
-            });
+            $(trClient).fadeOut(1500);
+            setTimeout(function () {
+                _this.service
+                    .remove(client)
+                    .subscribe(function () {
+                    var newClients = _this.clients.slice(0);
+                    var index = newClients.indexOf(client);
+                    newClients.splice(index, 1);
+                    _this.clients = newClients;
+                    _this.message = 'Cliente removido com sucesso';
+                }, function (error) {
+                    console.log(error);
+                    _this.message = 'Não foi possivel remover o cliente';
+                });
+            }, 1500);
         }
     };
     ListingComponent = __decorate([

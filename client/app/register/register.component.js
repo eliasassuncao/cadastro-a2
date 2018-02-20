@@ -36,11 +36,11 @@ var RegisterComponent = /** @class */ (function () {
             }
         });
         this.myForm = fb.group({
-            nome: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(3), forms_1.Validators.maxLength(35)])],
-            genero: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(8), forms_1.Validators.maxLength(9)])],
-            cpf: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(14), forms_1.Validators.maxLength(14)])],
-            ddn: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(10), forms_1.Validators.maxLength(10)])],
-            telefone: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(14), forms_1.Validators.maxLength(14)])]
+            nome: ['', forms_1.Validators.compose([])],
+            genero: ['', forms_1.Validators.compose([])],
+            cpf: ['', forms_1.Validators.compose([])],
+            ddn: ['', forms_1.Validators.compose([])],
+            telefone: ['', forms_1.Validators.compose([])]
         });
     }
     RegisterComponent.prototype.register = function (event) {

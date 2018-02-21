@@ -48,7 +48,7 @@ export class RegisterComponent {
                 [Validators.required, Validators.minLength(3), Validators.maxLength(35)]
             )],
             genero: ['', Validators.compose(
-                [Validators.required, Validators.minLength(8), Validators.maxLength(9)]
+                [Validators.required]
             ) ],
             cpf: ['', Validators.compose(
                 [Validators.required, Validators.minLength(11), Validators.maxLength(11)]

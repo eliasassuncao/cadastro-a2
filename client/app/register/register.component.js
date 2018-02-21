@@ -37,7 +37,7 @@ var RegisterComponent = /** @class */ (function () {
         });
         this.myForm = fb.group({
             nome: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(3), forms_1.Validators.maxLength(35)])],
-            genero: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(8), forms_1.Validators.maxLength(9)])],
+            genero: ['', forms_1.Validators.compose([forms_1.Validators.required])],
             cpf: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(11), forms_1.Validators.maxLength(11)])],
             ddn: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(10), forms_1.Validators.maxLength(10)])],
             telefone: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(11), forms_1.Validators.maxLength(11)])]

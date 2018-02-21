@@ -11,7 +11,7 @@ var schema = mongoose.Schema({
     },
     cpf: {
         type: String,
-        required: false
+        required: true
     },
     ddn: {
         type: String,

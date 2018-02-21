@@ -57,7 +57,7 @@ export class RegisterComponent {
                 [Validators.required, Validators.minLength(10), Validators.maxLength(10)]
             ) ],
             telefone: ['', Validators.compose(
-                [Validators.required, Validators.minLength(14), Validators.maxLength(14)]
+                [Validators.required, Validators.minLength(11), Validators.maxLength(11)]
             )]
         });
     }

@@ -40,7 +40,7 @@ var RegisterComponent = /** @class */ (function () {
             genero: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(8), forms_1.Validators.maxLength(9)])],
             cpf: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(11), forms_1.Validators.maxLength(11)])],
             ddn: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(10), forms_1.Validators.maxLength(10)])],
-            telefone: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(14), forms_1.Validators.maxLength(14)])]
+            telefone: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(11), forms_1.Validators.maxLength(11)])]
         });
     }
     RegisterComponent.prototype.register = function (event) {

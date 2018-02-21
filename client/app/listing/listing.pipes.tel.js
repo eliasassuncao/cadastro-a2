@@ -7,29 +7,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var CpfPipe = /** @class */ (function () {
-    function CpfPipe() {
+var TelPipe = /** @class */ (function () {
+    function TelPipe() {
     }
-    CpfPipe.prototype.transform = function (value, args) {
+    TelPipe.prototype.transform = function (value, args) {
         if (value) {
             value = value.toString();
             if (value.length == 11) {
-                return value.substring(0, 3).concat(".")
-                    .concat(value.substring(3, 6))
-                    .concat(".")
-                    .concat(value.substring(6, 9))
+                return value.substring(-1, 0).concat("(")
+                    .concat(value.substring(0, 2))
+                    .concat(")")
+                    .concat(value.substring(2, 7))
                     .concat("-")
-                    .concat(value.substring(9, 11));
+                    .concat(value.substring(7, 11));
             }
         }
         return value;
     };
-    CpfPipe = __decorate([
+    TelPipe = __decorate([
         core_1.Pipe({
-            name: 'cpfMask'
+            name: 'telMask'
         })
-    ], CpfPipe);
-    return CpfPipe;
+    ], TelPipe);
+    return TelPipe;
 }());
-exports.CpfPipe = CpfPipe;
-//# sourceMappingURL=listing.pipes.cpf.js.map
+exports.TelPipe = TelPipe;
+//# sourceMappingURL=listing.pipes.tel.js.map

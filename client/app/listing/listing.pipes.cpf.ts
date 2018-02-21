@@ -8,7 +8,7 @@ export class CpfPipe implements PipeTransform{
     transform(value:string, args: string[]) {
        if(value){
             value = value.toString();
-            if(value.length === 11){
+            if(value.length == 11){
                 return value.substring(0,3).concat(".")
                                      .concat(value.substring(3,6))
                                      .concat(".")

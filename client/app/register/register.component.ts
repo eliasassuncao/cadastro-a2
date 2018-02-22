@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { ClientsService } from '../services/clients.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -55,12 +55,13 @@ export class RegisterComponent {
             )],
             ddn: ['', Validators.compose(
                 [Validators.required, Validators.minLength(10), Validators.maxLength(10)]
-            ) ],
+            )],
             telefone: ['', Validators.compose(
                 [Validators.required, Validators.minLength(11), Validators.maxLength(11)]
             )]
         });
     }
+
      
     register(event) {
         event.preventDefault();
@@ -76,4 +77,19 @@ export class RegisterComponent {
             });
 
     }  
+
+    /*
+    maxValue(max: Number): ValidatorFn {
+        return (control: AbstractControl): {[key: string]: any} => {
+          const input = control.value,
+                isValid = input > max;
+          if(isValid) {
+          console.log('entrei no if')
+              return { 'maxValue': {max} }
+          }
+          else{ 
+                console.log('entrei no else')
+              return null; }
+        };
+      } */
 }

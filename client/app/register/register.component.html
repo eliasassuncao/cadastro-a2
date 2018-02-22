@@ -42,7 +42,7 @@
 
             <div class="form-group">
                 <label>CPF</label>
-                <input type="number" name="cpf" [(ngModel)]="client.cpf"class="form-control" autocomplete="off" formControlName="cpf" placeholder="999-999-999/99">
+                <input name="cpf" [(ngModel)]="client.cpf"class="form-control" autocomplete="off" formControlName="cpf" placeholder="999-999-999/99">
 
                 <div *ngIf="myForm.controls.cpf.invalid"> 
                     <span *ngIf="myForm.controls.cpf.errors.required" class="form-control alert-danger">
@@ -78,7 +78,8 @@
             </div>
             <div class="form-group">
                 <label>Telefone</label>
-                <input type="number" name="telefone" [(ngModel)]="client.telefone" class="form-control" autocomplete="off" formControlName="telefone" placeholder="(99)99999-9999">
+                <input name="telefone" [(ngModel)]="client.telefone" class="form-control" autocomplete="off"
+                  formControlName="telefone" placeholder="(99)99999-9999">
 
                 <div *ngIf="myForm.controls.telefone.invalid"> 
                     <span *ngIf="myForm.controls.telefone.errors.required" class="form-control alert-danger">

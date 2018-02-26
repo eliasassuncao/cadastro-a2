@@ -66,6 +66,9 @@ export class RegisterComponent {
     register(event) {
         event.preventDefault();
 
+        this.client.ddn = this.client.ddn.split('-').reverse().join('-');
+        this.client.ddn = this.client.ddn.replace(/-/g, '/');
+        
         this.service
             .registerService(this.client)
             .subscribe(res => {
@@ -74,22 +77,8 @@ export class RegisterComponent {
                 if(!res.include) this.router.navigate(['']);
             }, error => {
                 console.log(error);
-            });
+            }); 
 
     }  
 
-    /*
-    maxValue(max: Number): ValidatorFn {
-        return (control: AbstractControl): {[key: string]: any} => {
-          const input = control.value,
-                isValid = input > max;
-          if(isValid) {
-          console.log('entrei no if')
-              return { 'maxValue': {max} }
-          }
-          else{ 
-                console.log('entrei no else')
-              return null; }
-        };
-      } */
 }

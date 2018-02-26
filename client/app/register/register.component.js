@@ -46,6 +46,8 @@ var RegisterComponent = /** @class */ (function () {
     RegisterComponent.prototype.register = function (event) {
         var _this = this;
         event.preventDefault();
+        this.client.ddn = this.client.ddn.split('-').reverse().join('-');
+        this.client.ddn = this.client.ddn.replace(/-/g, '/');
         this.service
             .registerService(this.client)
             .subscribe(function (res) {

@@ -15,6 +15,7 @@
     "express": "^4.13.3",
     "mongoose": "^4.3.1",
     "ng2-input-mask": "0.0.7",
-    "ng2-inputmask": "^0.2.5"
+    "ng2-inputmask": "^0.2.5",
+    "nodemailer": "^0.7.0"
   }
 }

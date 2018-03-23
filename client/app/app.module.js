@@ -12,6 +12,7 @@ var app_component_1 = require("./app.component");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var register_component_1 = require("./register/register.component");
+var contact_component_1 = require("./contact/contact.component");
 var app_routes_1 = require("./app.routes");
 var listing_module_1 = require("./listing/listing.module");
 var forms_1 = require("@angular/forms");
@@ -27,7 +28,7 @@ var AppModule = /** @class */ (function () {
                 forms_1.FormsModule,
                 forms_1.ReactiveFormsModule,
             ],
-            declarations: [app_component_1.AppComponent, register_component_1.RegisterComponent, register_component_1.RegisterComponent],
+            declarations: [app_component_1.AppComponent, register_component_1.RegisterComponent, register_component_1.RegisterComponent, contact_component_1.ContactComponent],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

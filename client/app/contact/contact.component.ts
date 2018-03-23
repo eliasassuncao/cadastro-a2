@@ -15,7 +15,6 @@ export class ContactComponent {
     }
 
     send(event) {
-        event.preventDefault();
         var formData = $("#emailForm").serialize();
         $("#msg").text("Email sendo enviado, espere um momento...");
         $.ajax({
@@ -25,7 +24,7 @@ export class ContactComponent {
                 success: function(result) {
                     $("#msg").empty().text(result);
                     console.log(formData);
-                    console.log("sucesso no componente"); 
+                    console.log("sucesso no componente");
                 },
                 error: function(error) {
                     $("#msg").empty().text("Erro ao enviar o email: " + error.status + ", Error mensagem:" + error.statusText);
@@ -35,6 +34,6 @@ export class ContactComponent {
             timeout: 60000
 
         });
-    
     }
+
 }

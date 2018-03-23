@@ -21,7 +21,7 @@ app.post('/send', function(req, res) {
             secureConnection: true,
             port: 465,
             auth: {
-                user: 'php.store.elias@gmail.com',
+                user: 'seuEmail@gmail.com',
                 pass: 'suaSenha'
             }
     });
